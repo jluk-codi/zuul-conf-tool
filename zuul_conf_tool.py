@@ -26,7 +26,7 @@ def list_playbooks(root_dir):
     yaml_ext_regexp = re.compile(r'.*\.yaml')
     for path, dirs, files in os.walk(playbooks_path):
         for f in files:
-            if yaml_ext_regexp.match(f):
+            if yaml_ext_regexp.fullmatch(f):
                 playbook_file_stripped = f[:-5]
                 playbook_name = os.path.relpath(os.path.join(path, playbook_file_stripped), playbooks_path)
                 playbooks.append(playbook_name)
